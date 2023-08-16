@@ -1,4 +1,5 @@
 [![ci](https://github.com/irisdotsh/tor-middle-guard-relay/actions/workflows/ci.yml/badge.svg)](https://github.com/irisdotsh/tor-middle-guard-relay/actions/workflows/ci.yml)
+[![nightly](https://github.com/irisdotsh/tor-middle-guard-relay/actions/workflows/nightly.yml/badge.svg)](https://github.com/irisdotsh/tor-middle-guard-relay/actions/workflows/nightly.yml)
 
 # Tor Middle/Guard Relay
 
