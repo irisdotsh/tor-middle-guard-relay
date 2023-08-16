@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  tor-middle-guard-relay:
+    build: .
+    networks:
+      - tor-middle-guard-relay-network
+    environment:
+      - NICKNAME=${NICKNAME:?Env var NICKNAME must be set}
+      - CONTACT_INFO=${CONTACT_INFO:?Env var CONTACT_INFO must be set}
+      - OR_PORT=${OR_PORT:?Env var OR_PORT must be set}
+      - MONTHLY_BANDWIDTH=${MONTHLY_BANDWIDTH:?Env var MONTHLY_BANDWIDTH must be set}
+    env_file:
+      - .env
+    volumes:
+      - data:/var/lib/tor
+    ports:
+      - ${OR_PORT}:${OR_PORT}
+    restart: unless-stopped
+
+volumes:
+  data:
+    name: tor-datadir-${OR_PORT}
+
+networks:
+  tor-middle-guard-relay-network:
