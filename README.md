@@ -12,6 +12,7 @@ Make sure the following env variables are set:
 - NICKNAME (relay nickname)
 - CONTACT_INFO (relay owner's email)
 - OR_PORT (relay port)
+- BANDWIDTH_LIMIT (monthly bandwidth limit in GB)
 
 The example [docker-compose.yml](https://github.com/irisdotsh/tor-middle-guard-relay/blob/main/docker-compose.yml) file looks for a .env file with these variables set.
 
@@ -32,3 +33,12 @@ Deploy the container: `docker-compose up -d tor-middle-guard-relay`
 You only need a single command to monitor your relay's logs.
 
 `docker logs CONTAINER_ID`
+
+# Verifying Image Signature
+
+All images pushed to Docker Hub and the GitHub Container Registry are signed via cosign with my [cosign key](https://irisblankenship.blog/_/cosign.pub).
+
+You can verify them with the following commands:
+
+`cosign verify --key https://irisblankenship.blog/_/cosign.pub irisdotsh/tor-middle-guard-relay:latest`
+`cosign verify --key https://irisblankenship.blog/_/cosign.pub ghcr.io/irisdotsh/tor-middle-guard-relay:latest`
